@@ -1,0 +1,26 @@
+<ion-view view-title="Home" hide-back-button="true">
+  <ion-content>
+
+   <div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" ng-model="name" placeholder="Search Key">
+  </label>
+</div>
+<ion-list class="list card" ng-repeat="row in posts | filter:name" >
+<ion-item class="item item-avatar" href="#/app/home/{{row.slug}}">
+<img src="{{url}}/{{row.images}}">
+<h2>{{row.title}}</h2>
+<h2>{{row.created_at}}</h2>
+</ion-item>
+<div class="item item-body">
+<a href="#/app/home/{{row.slug}}"><img class="full-image"  src="{{url}}/{{row.images}}"></a>
+<p>{{row.description}}</p>
+ <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+</div>
+</ion-list>
+  </ion-content>
+</ion-view>

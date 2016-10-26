@@ -1,0 +1,38 @@
+<ion-view view-title="Checkout">
+  <ion-content class="padding check" >
+    <h3 class="sans-pro-light">
+        Total due: {{getTotal(cart)}} $
+    </h3>
+    <div class="item item-avatar item-icon-right" ng-repeat="product in cart.products">
+        
+<img ng-src="{{url}}/{{product.images}}">
+           <h2>{{product.title}}</h2>
+         <h2>Price: {{product.price}}</h2>
+     <i class="icon ion-chevron-right icon-accessory"></i>
+
+    </div>
+    <br>
+<h1 text-center>Vui lòng nhập đầy đủ thông tin </h1>
+ <div class="row responsive-sm  remvoeBP">
+
+            
+    <div class="list list-inset removePM">
+              <label class="item item-input"><input ng-model="data.fullname" type="text"  placeholder="Họ tên"> </label>
+              <label class="item item-input"><input ng-model="data.email" type="text" placeholder="Email Address"> </label>
+              <label class="item item-input"><input ng-model="data.phone" type="text" placeholder="Điện thoại"> </label>
+              <label class="item item-input"><input ng-model="data.cmt" type="text" placeholder="Số chứng minh thư"> </label>
+              <label class="item item-input"><input ng-model="data.address" type="text" placeholder="Địa chỉ"> </label>
+              <label class="item item-input"><input ng-model="data.note" type="text" placeholder="Ghi chú"> </label>
+    </div>
+
+            <div class="loginButton" ><button  ng-click="checkout(data)" class="button button-energized button-deepblue-white button-outline">PROCEED TO PAYMENT</button> </div>
+
+  </div>
+
+
+
+
+
+    
+  </ion-content>
+</ion-view>

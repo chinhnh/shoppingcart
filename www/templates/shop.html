@@ -1,0 +1,44 @@
+<ion-view view-title="Shop" hide-back-button="true">
+
+    <ion-nav-buttons side="right">
+    <span ui-sref="app.cart" >
+      <button class="button button-clear icon ion-android-cart white-color">
+        
+      </button>
+      <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
+    </span>
+    </ion-nav-buttons>
+
+  <ion-content>
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" ng-model="name" placeholder="Search Key">
+  </label>
+</div>
+
+    <div ng-repeat="product in products | filter:name">
+      <div class="item item-image" style="position:relative;">
+
+        <img ng-src="{{url}}/{{product.images}}">
+        <button class="button button-positive product-price" ng-click="addProduct(product)">
+            <p class="white-color product-price-price">$ <b>{{product.price}}</b></p>
+            <p class="white-color product-price-text">
+                <i class="ion-android-cart"></i> <span>Đặt hàng</span>
+            </p>  
+        </button> 
+    
+      </div>
+
+      <div class="item ui-gradient-deepblue">
+       <a href="#/app/product/{{product.slug}}"> <h1 class="title white-color sans-pro-light">{{product.title}}</h1></a>
+      </div>
+
+      <div class="item item-body" ng-bind-html="product.description">
+       
+      </div>
+    </div>
+
+    
+  </ion-content>
+</ion-view>

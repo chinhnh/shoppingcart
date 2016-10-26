@@ -1,0 +1,73 @@
+<!-- 
+  #IMPLEMENTATION-DETAIL:
+  this view is our top one and uses ion-side-menus component.
+  In case of views where we want to hide the menu, we'll hide the 
+  navigation bar provided here.
+  #TIP: enable-menu-with-back-views="true" is set to true to show the menu opening control in all views by default.
+-->
+<ion-side-menus enable-menu-with-back-views="true">
+  
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-deepblue">
+      <!-- #TIP: <ion-nav-back-button> is commented out in this example,
+        uncomment if you need a back button in some views.
+      -->
+      <!--
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      -->
+      <ion-nav-buttons side="left" >
+        <button class="white-color button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    
+    <ion-nav-view name="menuContent" class="slide-left-right"></ion-nav-view>
+  
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+  
+    <ion-header-bar class="bar-deepblue-reverse bar-deepblue-borderbottom">
+     <ion-header-bar class="bar-stable bar-positive">
+       <p>Xin chào, Admin</p>
+    </ion-header-bar>
+    </ion-header-bar>
+  
+    <ion-content>
+      <ion-list>
+     
+     <div class="list card ">
+    <div class="item item-avatar" >
+      <img src="img/user.jpg">
+      <h2>Nguyễn Hữu Chinh</h2>
+      <p>Web Developer</p>
+    </div>
+    </div>
+    <ion-item menu-close href="#/app/home"><i class="ion ion-home"></i> Trang chủ </ion-item>
+      <div ng-repeat="category in categorys">
+    <ion-item menu-close  href="#/app/shop">
+    <i class="ion ion-star"></i> {{category.name}}
+    </ion-item>
+     <div ng-repeat="row in category.child ">
+    <ion-item menu-close   href="#/app/shopdetail/{{row.slug}}">
+      <div class="menu-child">
+      <i class="ion ion-minus"></i> {{row.name}}
+       </div>
+      </ion-item>
+      </div>
+     </div>
+      </ion-list>
+    </ion-content>
+    
+    <!-- 
+      #IMPLEMENTATION-DETAIL:
+      we choose to put a "logout" button in the footer of side menu.
+      the "logout" method in contained in "AppCtrl" controller (see controllers.js)
+    -->
+    <ion-footer-bar class="bar-positive">
+      <button class="button button-clear white-color" ng-click="logout()" menu-close>Logout</button>
+    </ion-footer-bar>
+  
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,20 @@
+<ion-view view-title="{{row.title}}">
+<ion-nav-buttons side="left">
+    <span ui-sref="app.start" class="button button-clear button-deepblue-white"><i class="white-color ion-arrow-left-c"></i></span>
+  </ion-nav-buttons>
+
+  <ion-content>
+<div class="list card">
+<div class="item item-body">
+<h2>{{row.title}}</h2>
+<h2>{{row.created_at}}</h2>
+<img class="full-image"  src="{{url}}/{{row.images}}">
+<p ng-bind-html="row.content"></p>
+ <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+</div>
+</div>
+  </ion-content>
+</ion-view>
